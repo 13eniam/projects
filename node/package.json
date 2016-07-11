@@ -1,0 +1,21 @@
+{
+  "name": "node",
+  "version": "1.0.0",
+  "description": "Test application for testing Node related stuff",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Test",
+    "Node"
+  ],
+  "author": "Benji",
+  "license": "ISC",
+  "dependencies": {
+    "app-root-path": "^1.2.1",
+    "knex": "^0.11.7",
+    "pg": "^6.0.1",
+    "underscore": "^1.8.3"
+  }
+}

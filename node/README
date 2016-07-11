@@ -1,0 +1,37 @@
+Main or entry file
+------------------
+Use node-test as your main or entry point. This is not a requirement though. You can use any suitable entry point. This is an example.
+
+Compiling your coffee script files and running your node application
+--------------------------------------------------------------------
+
+All CoffeScript source files are kept under node/src
+
+To compile your CoffeeScript source files under src and output them under target do:
+
+coffee -co target src
+
+Including a submodule from another module
+-----------------------------------------
+
+To include a submodule in another module, require it in your module using the APPROOT as the path to your application
+
+e.g.
+
+APPROOT = require('app-root-path')
+submodule = require"#{APPROOT}/target/[path to submodule]"
+
+Notice we are requiring the generated Javascript file not the CoffeeScript file that was used to generate it.
+
+Running your application
+------------------------
+
+node target/lib/node-test.js
+
+
+Installing a node package to use with your application
+------------------------------------------------------
+
+npm install [package-name] --save
+
+Note: Use --save so that the version number is captured and the package maintained through package.json
