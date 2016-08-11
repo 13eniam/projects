@@ -6,7 +6,7 @@ console.log "=========================================================="
 console.log
 console.log
 
-test = require("#{APPROOT}/target/lib/test_bench/testfixture")
+{testfixture, moment_testfixture} = require("#{APPROOT}/target/lib/test_bench/testfixture")
 #countries = require("#{APPROOT}/target/lib/test_bench/countries")
 
 #console.log 'Countries', countries.COUNTRIES
@@ -15,4 +15,7 @@ test = require("#{APPROOT}/target/lib/test_bench/testfixture")
 
 #test.testfixture.test1()
 #test.testfixture.dbtestTwo()
-test.testfixture.dbtestRowCount()
+#test.testfixture.dbtestRowCount()
+#testfixture.dbtestGetAdRulesByClientId()
+
+moment_testfixture.test_moment_functions()

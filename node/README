@@ -35,3 +35,7 @@ Installing a node package to use with your application
 npm install [package-name] --save
 
 Note: Use --save so that the version number is captured and the package maintained through package.json
+
+Once your package is installed, access it in your code via require as follows:
+
+package = require 'package'
