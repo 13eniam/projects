@@ -68,17 +68,26 @@ testfixture =
       
 
 moment_testfixture =
+
+  print_time: (time, title) ->
+    console.log ''
+    console.log title
+    console.log '=========================================='
+    console.log "Time format", time.format()
+    console.log "Time format using toDate", time.toDate()
+    console.log "date:", time.date()
+    console.log "hour:", time.hour()
+    console.log "minutes:", time.minute()
+    console.log "seconds:", time.second()
+    console.log "start of hour:", time.startOf('hour').format()
+    console.log "end of hour:", time.endOf('hour').format()
+    console.log ''
+
   test_moment_functions: ->
     now = moment()
     now_utc = moment.utc()
-    console.log "Testing UTC moment functions"
-    console.log "UTC format", now_utc.format()
-    console.log "date from moment:", now_utc.date()
-    console.log "hour from moment:", now_utc.hour()
-    console.log "minutes from moment:", now_utc.minute()
-    console.log "seconds from moment:", now_utc.second()
-    console.log "start of hour:", now_utc.startOf('hour').format()
-    console.log "end of hour:", now_utc.endOf('hour').format()
+    @.print_time now, 'Local Time'
+    @.print_time now_utc, 'UTC Time'
 
     console.log "============================================================"
     console.log "Converting to database time format"
