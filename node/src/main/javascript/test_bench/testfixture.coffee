@@ -1,7 +1,7 @@
 _ = require('underscore')
 
 APPROOT = require('app-root-path')
-knex = require("#{APPROOT}/target/lib/test_bench/uacdb").Knex
+knex = require("#{APPROOT}/target/main/javascript/test_bench/uacdb").Knex
 moment = require 'moment'
 
 testfixture =

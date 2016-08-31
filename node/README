@@ -32,10 +32,36 @@ node target/lib/node-test.js
 Installing a node package to use with your application
 ------------------------------------------------------
 
+To install a pacakge as a project dependency use --save:
 npm install [package-name] --save
+
+To install a pacage as a development dependency use --save-dev:
+npm install --save-dev [package-name]
 
 Note: Use --save so that the version number is captured and the package maintained through package.json
 
 Once your package is installed, access it in your code via require as follows:
 
 package = require 'package'
+
+
+Running Unit tests
+------------------
+
+Install Mocha as a development dependency if it has not been installed:
+
+npm install --save-dev mocha
+
+Create unit tests under src/test/javascript
+
+Compile your source files including your unit tests:
+
+coffee -co target src
+
+Run your unit test:
+
+./node_modules/mocha/bin/mocha target/test/javascript/[path-to-your-test-file]
+
+e.g.
+
+./node_modules/mocha/bin/mocha target/test/javascript/test_bench/countries-test.js
