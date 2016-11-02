@@ -1,4 +1,4 @@
-console.log 'Put your test code here'
+console.log 'Put your test code here.'
 
 APPROOT = require('app-root-path')
 console.log "APPROOT: #{APPROOT}"
@@ -17,5 +17,6 @@ console.log
 #test.testfixture.dbtestTwo()
 #test.testfixture.dbtestRowCount()
 #testfixture.dbtestGetAdRulesByClientId()
+testfixture.dbtestGetAlertWithDeviceType()
 
-moment_testfixture.test_moment_functions()
+#moment_testfixture.test_moment_functions()

@@ -11,6 +11,16 @@ To compile your CoffeeScript source files under src and output them under target
 
 coffee -co target src
 
+Defining database connections
+-----------------------------
+
+Modify ../javascript/test_bench/uacdb.coffee and specify connections details. Then include the module in your source file as:
+
+knex = require("#{APPROOT}/target/main/javascript/test_bench/uacdb").Knex
+
+in order to write knex queries.
+
+
 Including a submodule from another module
 -----------------------------------------
 
@@ -35,7 +45,7 @@ Installing a node package to use with your application
 To install a pacakge as a project dependency use --save:
 npm install [package-name] --save
 
-To install a pacage as a development dependency use --save-dev:
+To install a package as a development dependency use --save-dev:
 npm install --save-dev [package-name]
 
 Note: Use --save so that the version number is captured and the package maintained through package.json
@@ -65,3 +75,22 @@ Run your unit test:
 e.g.
 
 ./node_modules/mocha/bin/mocha target/test/javascript/test_bench/countries-test.js
+
+
+Running standalone files
+------------------------
+
+If you want to take advantage of the import capabilities of npm and require, create a file in src/main/javascript use
+require to import the files that are installed in node_modules and run your tests using the coffee compiler as:
+
+coffee <path-to-file>
+
+If your file is under the node_modules directory you can just require files by using the package name:
+
+e.g. _ = require 'underscore'
+
+If your file is not under the node_modules directory then you will have to give the file path:
+
+e.g. _ =  require('/usr/local/lib/node_modules/underscore')
+
+

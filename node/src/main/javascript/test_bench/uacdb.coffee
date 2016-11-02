@@ -3,7 +3,7 @@ knex_lib = require 'knex'
 knex_config =
   client: 'postgres'
   connection:
-    host: ''
+    host: '172.16.30.129'
     user: 'uac_user'
     database: 'uac'
     password: ''

@@ -60,12 +60,19 @@ testfixture =
     console.log "UAC DB Fetch AutoDisposition rules by client id"
     knex.select('auto_disposition_rules.uuid').from('auto_disposition_rules')
     .innerJoin('auto_disposition_rule_clients','auto_disposition_rules.uuid','auto_disposition_rule_clients.auto_disposition_rule_uuid')
-    .whereIn('client_uuid',['b8a9f32a-37ba-4c34-85a2-b0885a6bef2d'])
+#    .whereIn('client_uuid',['b8a9f32a-37ba-4c34-85a2-b0885a6bef2d'])
     .then (ad_rule_ids) ->
-      console.dir ad_rule_ids
+      console.log ad_rule_ids
     .catch  (err) ->
       console.error err
       
+  dbtestGetAlertWithDeviceType: ->
+    console.log "Get an Alert with its associated device_type."
+    knex.select('alerts.*', 'device.device_type').from('alerts').innerJoin('device', 'alerts.device_uuid', 'device.uuid')
+    .then (results) ->
+      console.log results
+    .catch (err) ->
+      console.error err
 
 moment_testfixture =
 
