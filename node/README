@@ -36,8 +36,7 @@ Notice we are requiring the generated Javascript file not the CoffeeScript file 
 Running your application
 ------------------------
 
-node target/lib/node-test.js
-
+node target/main/javascript/node-test.js
 
 Installing a node package to use with your application
 ------------------------------------------------------
@@ -94,3 +93,17 @@ If your file is not under the node_modules directory then you will have to give 
 e.g. _ =  require('/usr/local/lib/node_modules/underscore')
 
 
+Running the application in Docker
+--------------------------------
+
+The following steps assume that the cwd is the application directory
+
+1. Make your changes to the code base
+2. Compile the changes
+	coffee -co target src
+3. Build docker
+	docker build -t node-testing-application:latest .
+4. Run docker
+	docker run --rm -ti -e DBHOST=<dbhost> -e DBPASSWORD=<dbpassword> node-testing-application:latest /bin/bash
+5. Run the application
+	node target/main/javascript/node-test.js

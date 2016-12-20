@@ -17,6 +17,6 @@ console.log
 #test.testfixture.dbtestTwo()
 #test.testfixture.dbtestRowCount()
 #testfixture.dbtestGetAdRulesByClientId()
-testfixture.dbtestGetAlertWithDeviceType()
+testfixture.dbtest()
 
 #moment_testfixture.test_moment_functions()

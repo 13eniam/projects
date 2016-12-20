@@ -3,10 +3,10 @@ knex_lib = require 'knex'
 knex_config =
   client: 'postgres'
   connection:
-    host: '172.16.30.129'
+    host: process.env.DBHOST
     user: 'uac_user'
     database: 'uac'
-    password: ''
+    password: process.env.DBPASSWORD
     port: 5432
     charset: 'utf8'
   pool:

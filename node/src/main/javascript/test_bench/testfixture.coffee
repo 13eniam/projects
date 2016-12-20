@@ -3,7 +3,13 @@ _ = require('underscore')
 APPROOT = require('app-root-path')
 knex = require("#{APPROOT}/target/main/javascript/test_bench/uacdb").Knex
 moment = require 'moment'
+prettyjson = require 'prettyjson'
 
+printQuery = (knexQuery) ->
+	console.log '======================================================'
+	console.log knexQuery.toString()
+	console.log '======================================================'
+	
 testfixture =
   test1:  ->
 
@@ -24,6 +30,19 @@ testfixture =
     console.log 'result', chooseFromArray clients
 
   dbtest: ->
+  	console.log 'Fetching hx_rta alerts that have src_id'
+  	
+  	query = knex.select('uuid').from('alerts')
+  			.where
+  				backend: 'hx_rta'
+  			#.whereNotNull 'src_id'
+  			.limit 1
+  	printQuery query	
+  	
+  	query.then (rows) ->
+  		console.log prettyjson.render rows[0]
+  		
+  dbtestPaging: ->
     console.log "UAC DB test"
     knex('client').select('uuid','name','alias').limit(10).offset(40).then (rows) ->
       _.each rows, (row,index) ->
