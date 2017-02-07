@@ -1,0 +1,26 @@
+version: '2'
+
+services:
+  rabbitmq-server:
+    build: services/rabbitmq-server
+    hostname: rabbitmq.acme.com
+  app-server:
+    build: .
+    depends_on:
+    - rabbitmq-server
+    volumes:
+    - .:/usr/src/app
+    links:
+    - rabbitmq-server:rabbitmq.acme.com
+    expose:
+    - "8000"
+  web-server:
+    build: services/web-server
+    depends_on:
+    - app-server
+    volumes_from:
+    - app-server
+    ports:
+    - "49160:8080"
+    links:
+    - app-server:app.acme.com
